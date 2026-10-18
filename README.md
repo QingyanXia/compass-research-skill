@@ -62,9 +62,24 @@ Compass presents evidence in proportion to its strength. It surfaces useful diff
 
 ## Install
 
+**Install Compass directly through your AI agent—no manual terminal steps required.**
+
+Copy and send this prompt to **Codex** or **Claude Code**:
+
+```text
+Install Compass Research Skill for me:
+https://github.com/QingyanXia/compass-research-skill
+
+Please perform the installation directly. Identify whether this environment is Codex or Claude Code, fetch the compass-research/ directory from the repository, and place it in the corresponding user-level Skills directory. Keep SKILL.md and the references/ folder intact.
+
+After installation, verify the files and tell me the install path, how to invoke the skill, and whether the agent needs to restart to discover it.
+```
+
+### Manual installation (optional)
+
 Compass follows the [Agent Skills format](https://agentskills.io/specification). Install the `compass-research/` directory containing `SKILL.md`.
 
-**Codex — user-level installation**
+**Codex**
 
 ```bash
 git clone https://github.com/QingyanXia/compass-research-skill.git
@@ -72,7 +87,7 @@ mkdir -p ~/.agents/skills
 cp -R compass-research-skill/compass-research ~/.agents/skills/
 ```
 
-Invoke it with `$compass-research`, or allow Codex to select the skill when relevant. For project-specific use, install the folder under `<project>/.agents/skills/`.
+Invoke with `$compass-research`. For project-specific use, install the folder under `<project>/.agents/skills/`.
 
 **Claude Code**
 
