@@ -2,112 +2,104 @@
 
 > **Beyond answers. Discover the questions worth asking.**
 
-**Compass** is a researcher-first Agent Skill for scientific discovery, diagnosis, experimentation, and open-ended problem solving. Its purpose is not to automate papers or generate plausible-sounding ideas. It helps researchers **see more of the problem space, make evidence-based decisions, and develop independent research judgment**.
+**Discover the problem. Challenge the assumption. Design the experiment. Follow the evidence.**
+
+Compass is an AI research skill built around a simple conviction: **the most valuable research partner expands what you can discover—and strengthens your ability to decide what to pursue.**
+
+From a puzzling experiment to a new research direction, Compass helps you explore questions, diagnose mechanisms, test hypotheses, develop solutions, and learn how strong research is built.
 
 [简体中文](README.zh-CN.md)
 
-## What Compass does
+## From results to research
 
-- **Discover problems** from existing results or deliberate exploratory experiments, even when no explicit research question or baseline exists.
-- **Diagnose mechanisms** through comparison, subgroup analysis, process tracing, and focused interventions.
-- **Turn hypotheses into tests** that generate useful evidence, including results that could weaken the hypothesis.
-- **Develop solutions** without rushing to a familiar architecture or prematurely dismissing original human ideas.
-- **Read literature for insight**: problem abstraction, hypotheses, decisive figures, methods, evidence, and transferable research reasoning.
-- **Protect the exploration space** by recognizing hidden assumptions and, at consequential direction changes, asking a context-isolated subagent for an independent evidence-based perspective when available.
+### Discover what matters
 
-## Philosophy
+Start with a research idea, a working baseline, unexpected results, or just a phenomenon worth exploring. Compass analyzes behavior across conditions, cases, and stages, then brings forward the observations worth your attention.
 
-**Minimal stable kernel, optional methods.** A single research decision loop supports many entry points:
+### Understand what is happening
 
-`Goal and evidence → provisional judgment → informative next action → new evidence → updated judgment`
+Move from symptoms to explanations. Use targeted comparison, subgroup analysis, process tracing, first-principles reasoning, and carefully chosen interventions to locate meaningful bottlenecks.
 
-Methods are chosen for their usefulness, not run as a checklist. Domain techniques remain optional. The design favors a small core over ever-growing prompts, agents, hooks, and audit logs.
+### Turn ideas into evidence
 
-**Researcher-first, not blindly agreeable.** In ideation, the human gets room to think before the model suggests familiar solutions. During analysis, the model gives its own honest, evidence-grounded assessment. The researcher—not the AI—chooses the problems and directions worth pursuing.
+Make hypotheses testable. Compass helps design experiments that distinguish possible causes, explains **why an experiment is worth running**, and uses both expected and surprising results to update the next move.
 
-**Open exploration, focused action.** The AI can recommend one next experiment while making material alternatives visible at meaningful forks. It neither buries evidence under defensive caveats nor inflates tiny metric differences into breakthroughs.
+### Keep the possibility space open
 
-## How collaboration feels
+A model is a tool. A method is a candidate. A framing is a choice.
 
-| Moment | Default behavior |
-| --- | --- |
-| No defined research problem | AI explores evidence and designs targeted probes; researcher chooses which findings matter |
-| Hypothesis formation | Researcher tries an explanation first; AI supplies knowledge or hypotheses when needed |
-| Test design | AI recommends one informative experiment and explains why |
-| Results | AI presents measured facts; researcher interprets; AI then independently analyzes |
-| Solution creation | Researcher may freely propose ideas before exposure to known implementation patterns |
-| Major direction fork | One fresh-context perspective check when supported; important alternatives reach the researcher |
+Compass pays attention to hidden assumptions and moments when a convenient technique quietly becomes the research goal. At consequential forks, it can bring in an independent perspective through a context-isolated subagent in supported environments.
 
-These are adaptive defaults, not compulsory interview steps.
+### Create with independent judgment
+
+Your intuition comes first when you want to explore an idea. Compass then brings domain knowledge, honest evaluation, alternative mechanisms, and a focused way to test the core insight.
+
+### Learn how research is made
+
+Read papers through the decisions behind them: how the authors abstracted a real problem, formed hypotheses, designed methods, interpreted figures, and connected evidence to claims. Carry those ways of thinking into your own work.
+
+## Researcher-first by design
+
+Compass is organized around one small research decision loop:
+
+```text
+Research goal + evidence
+        ↓
+Working interpretation
+        ↓
+Most informative next action
+        ↓
+Experiment / analysis / exploration
+        ↓
+New evidence → updated judgment
+```
+
+**Open exploration. Focused action. Researcher-owned direction.**
+
+AI handles wide-ranging analysis and purposeful execution; researchers bring questions, intuition, interpretation, and taste. Together, they move from observing an outcome to understanding what to investigate next.
+
+Compass presents evidence in proportion to its strength. It surfaces useful differences without flooding the researcher with charts, and recommends a concrete next step without treating that recommendation as the only road.
 
 ## Install
 
-The skill follows the [Agent Skills open format](https://agentskills.io/specification). **Install the inner `compass-research/` folder**, which contains `SKILL.md`; the repository root is for distribution and testing.
+Compass follows the [Agent Skills format](https://agentskills.io/specification). Install the `compass-research/` directory containing `SKILL.md`.
 
-For **Codex**, at user scope, from the downloaded package:
-
-```bash
-unzip compass-research-skill.zip
-mkdir -p "$HOME/.agents/skills"
-cp -R compass-research-skill/compass-research "$HOME/.agents/skills/"
-```
-
-Or, after the repository is published, clone and install:
+**Codex — user-level installation**
 
 ```bash
-git clone https://github.com/QingyanXia/compass-research-skill.git compass-research-skill
-mkdir -p "$HOME/.agents/skills"
-cp -R compass-research-skill/compass-research "$HOME/.agents/skills/"
+git clone https://github.com/QingyanXia/compass-research-skill.git
+mkdir -p ~/.agents/skills
+cp -R compass-research-skill/compass-research ~/.agents/skills/
 ```
 
-For a single Codex project, copy that same folder into `<project>/.agents/skills/` instead. Then use `$compass-research` explicitly, or allow the runtime to discover it from the description.
+Invoke it with `$compass-research`, or allow Codex to select the skill when relevant. For project-specific use, install the folder under `<project>/.agents/skills/`.
 
-For **Claude Code**, copy it into `~/.claude/skills/compass-research/` (or `<project>/.claude/skills/compass-research/`) and use `/compass-research`. Skills are portable, but **true isolated-subagent behavior depends on the host/runtime configuration**. When unavailable, Compass labels the weaker fallback rather than pretending it delegated.
+**Claude Code**
 
-Examples of usage:
+Copy `compass-research/` into `~/.claude/skills/` or `<project>/.claude/skills/`, then invoke `/compass-research`.
 
-- `$compass-research I reproduced a detector. The metrics look normal, but I don't know what is worth studying.`
-- `$compass-research Small objects are missed. Help me locate the bottleneck; I want to form the first hypothesis myself.`
-- `$compass-research My new method underperformed the baseline. What does the result actually tell us?`
-- `$compass-research Let's challenge the assumptions behind choosing this model before committing to it.`
-
-## Repository layout
+## Try Compass
 
 ```text
-compass-research-skill/
-├── README.md
-├── README.zh-CN.md
-├── LICENSE
-├── compass-research/
-│   ├── SKILL.md                     # Small, complete decision kernel
-│   └── references/                  # Loaded only for a relevant need
-│       ├── methods.md
-│       ├── literature.md
-│       ├── independent-perspective.md
-│       └── research-state.md
-└── tests/
-    ├── scenarios.md                # Blind and negative test cases
-    └── validate_structure.py       # Standard-library format check
+$compass-research I reproduced an object detector. The benchmark looks fine,
+but I don't know what is worth investigating.
+
+$compass-research Small objects are being missed.
+Help me understand the evidence; I'd like to form my first hypothesis myself.
+
+$compass-research My proposed method underperformed the baseline.
+What did the experiment reveal, and what should we test next?
+
+$compass-research We've spent days optimizing this model.
+Let's check whether we've silently made the model itself our goal.
 ```
 
-## Evaluation and status
+## Architecture
 
-This is a **full-scope v1.0 release candidate**, not a deliberately feature-reduced demo. The published package includes research discovery, diagnosis, hypothesis testing, solution design, literature reasoning, and independent perspective checks.
+A **minimal, stable research kernel** coordinates on-demand methods. The skill lives in [`compass-research/SKILL.md`](compass-research/SKILL.md); focused references live in [`compass-research/references/`](compass-research/references/).
 
-It includes a structural validator and an evaluator-facing test set. **Passing file validation is not evidence that the model behaves as intended.** Before marking a public release stable, run the scenarios in fresh model sessions with and without Compass, assess actual tool use at major forks, and refine only demonstrable failures. See [tests/scenarios.md](tests/scenarios.md).
-
-Run structural checks:
-
-```bash
-python3 tests/validate_structure.py
-```
-
-## Scope and limits
-
-Compass is optimized for AI/ML/CV research but keeps its decision logic applicable to empirical research more broadly. It does not ship model-training code, datasets, automated paper-writing pipelines, always-on multi-agent committees, mandatory runtime hooks, or permanent agent invocation logs.
-
-A Skill is an instruction package. It cannot guarantee model correctness, exhaustive discovery, statistically valid inference, live tool availability, or autonomous independent review where the runtime does not provide one.
+The core stays small. Its capabilities grow through better research judgment and reusable methods, rather than an ever-expanding collection of mandatory steps.
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+[MIT](LICENSE).
