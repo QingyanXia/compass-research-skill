@@ -25,7 +25,7 @@ Do not trigger because a normal experiment is difficult, the user requests a nar
 
 > From only these facts and the original research goal, identify any materially different plausible problem framings, mechanisms, or investigation paths that deserve the researcher's awareness. Distinguish evidence from conjecture. Identify an implicit assumption if one is shaping the apparent problem. Do not force disagreement, invent options, rank interests on the researcher's behalf, or write a long survey. Return only consequential insights and a possible discriminating observation.
 
-- Subagent return is input to researcher-facing choice, **not a hidden final verdict**. Present meaningful differences and the current recommendation. The researcher decides what interests them or what to test.
+- Subagent return is input to researcher-facing choice, **not a hidden final verdict**. When it reveals a materially different problem framing or research direction, explicitly show the difference as a **separate, intelligible option**, with the evidence that makes it consequential. Do not silently convert an alternative direction into minor improvements to the existing plan. The lead agent can recommend one route and one next action; the researcher chooses. If no consequential alternative emerges, do not invent one or dump the whole review.
 
 ## Platform portability and failure behavior
 
