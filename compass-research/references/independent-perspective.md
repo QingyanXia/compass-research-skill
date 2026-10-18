@@ -19,13 +19,14 @@ Do not trigger because a normal experiment is difficult, the user requests a nar
 ## Use a genuinely isolated agent when supported
 
 - Call the actual subagent/delegation tool exposed by the host runtime. Verify its available parameters. For systems that support a fresh-history setting (e.g. `fork_turns: none`), use it. Do not invent invocation syntax.
-- Give the agent an **evidence-only packet**: the original research goal, confirmed observations, essential experimental setup, data/measurements and constraints.
-- Withhold the lead agent's favored causal hypothesis, implementation, and draft conclusion **unless one of those is itself a factual part of what must be analyzed**. Do not conceal contradictory evidence.
+- Give the agent an **evidence-only packet**: the original research goal, confirmed observations, essential experimental setup, data/measurements, and **genuine researcher-defined constraints**. Distinguish these from the current model or technique, which may be useful existing work but is not automatically mandatory.
+- Withhold the lead agent's favored causal hypothesis, proposed implementation, and draft conclusion **unless one is itself an essential fact**. Do not conceal contradictory evidence. If the current model is relevant context, identify it as **currently explored, not fixed**.
 - Ask an independent question such as:
 
-> From only these facts and the original research goal, identify any materially different plausible problem framings, mechanisms, or investigation paths that deserve the researcher's awareness. Distinguish evidence from conjecture. Identify an implicit assumption if one is shaping the apparent problem. Do not force disagreement, invent options, rank interests on the researcher's behalf, or write a long survey. Return only consequential insights and a possible discriminating observation.
+> From the original goal and these facts, identify the key assumption that currently narrows the research direction. **Temporarily remove that assumption**: is there a credible, materially different path to the same goal without requiring the current model, technique, or problem framing? Compare it with continuing the present route. Preserve actual user constraints, distinguish evidence from conjecture, and do not force an alternative if none is credible. Return only the consequential choice and its basis.
 
-- Subagent return is input to researcher-facing choice, **not a hidden final verdict**. When it reveals a materially different problem framing or research direction, explicitly show the difference as a **separate, intelligible option**, with the evidence that makes it consequential. Do not silently convert an alternative direction into minor improvements to the existing plan. The lead agent can recommend one route and one next action; the researcher chooses. If no consequential alternative emerges, do not invent one or dump the whole review.
+- **A variant within the contested premise does not count as an independent frame.** For example, replacing architectural modification of one detector with another way of adapting that same detector may broaden methods, but does not test whether the detector itself must remain central.
+- The review informs **researcher-facing choice**, not a hidden verdict. Present any credible premise-independent route **before** a detailed plan for the current route; explain the difference and your recommendation without silently folding it into that plan. The researcher chooses. If no consequential alternative emerges, do not invent one or dump the entire review.
 
 ## Platform portability and failure behavior
 
