@@ -78,9 +78,24 @@ Compass 以准确、简洁的方式呈现结果，让证据强度与结论力度
 
 ## 安装
 
-Compass 遵循 [Agent Skills 格式](https://agentskills.io/specification)。安装包含 `SKILL.md` 的 `compass-research/` 文件夹即可。
+**可以直接让你的 AI Agent 安装 Compass，无需手动执行命令。**
 
-**Codex：个人安装**
+在 **Codex** 或 **Claude Code** 中复制并发送以下提示词：
+
+```text
+请帮我安装 Compass Research Skill：
+https://github.com/QingyanXia/compass-research-skill
+
+直接执行安装。识别当前使用的 Agent（Codex 或 Claude Code），从仓库获取 compass-research/ 文件夹，安装到对应的用户级 Skills 目录，并保留其中的 SKILL.md 和 references/。
+
+安装完成后，确认文件完整，告诉我安装路径、调用方式，以及是否需要重启 Agent 才能识别。
+```
+
+### 手动安装（可选）
+
+Compass 遵循 [Agent Skills 格式](https://agentskills.io/specification)。安装包含 `SKILL.md` 的 `compass-research/` 目录即可。
+
+**Codex**
 
 ```bash
 git clone https://github.com/QingyanXia/compass-research-skill.git
@@ -88,7 +103,7 @@ mkdir -p ~/.agents/skills
 cp -R compass-research-skill/compass-research ~/.agents/skills/
 ```
 
-使用 `$compass-research` 调用，也可以让 Codex 根据研究任务自动选择。项目级使用时，安装在 `<项目>/.agents/skills/`。
+使用 `$compass-research` 调用。项目级安装可放在 `<项目>/.agents/skills/`。
 
 **Claude Code**
 
