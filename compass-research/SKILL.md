@@ -72,8 +72,8 @@ A useful local answer can still serve the wrong global question. When there are 
 At **consequential forks that narrow research direction** (e.g., committing to a major method, declaring the principal bottleneck, discarding an important path, or reinterpreting a major anomaly):
 
 1. **Use one genuinely context-isolated subagent if the current runtime supports it.** Read [references/independent-perspective.md](references/independent-perspective.md) and delegate an evidence-only task. Do not pass the favored explanation or solution to the reviewer.
-2. Contrast its material insights with the current view. Present substantively different, evidence-relevant possibilities to the researcher, even if not your own first choice. Do not demand a fixed number of alternatives.
-3. Recommend a focused next action while keeping the choice of research direction with the researcher.
+2. **Surface consequential differences as distinct choices.** If independent review reveals a materially different problem frame or research direction, explicitly present that alternative and its evidence to the researcher. **Do not merely absorb it into an improved execution plan for the current route**, leaving the underlying direction choice invisible. Do not manufacture alternatives when no material difference exists.
+3. Give an evidence-based recommendation and a focused next action, while leaving the choice of research direction with the researcher.
 
 This is a conditional semantic trigger, **not** a mandate to spawn agents for routine analysis. Never pretend a self-review was a separate isolated agent. If such delegation is unavailable, use a clearly labeled lower-confidence evidence-only re-examination and note the limitation when relevant to the decision; do not invent tool calls.
 
